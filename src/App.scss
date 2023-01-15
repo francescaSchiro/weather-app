@@ -1,0 +1,62 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100vh;
+  align-items: center;
+  background-color: aquamarine;
+
+  .title {
+    font-size: 2rem;
+    margin: 1.5rem 0;
+  }
+
+  .search {
+    align-items: center;
+
+    .form-wrapper {
+      justify-content: flex-start;
+      align-items:center;
+      label {
+        font-size: 1.5rem;
+      }
+      input, select {
+        
+        height: 4rem;
+        margin: 1rem 0;
+        padding: .5rem;
+  
+      }
+    }
+
+  }
+
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    padding: 1rem;
+    max-width: 10rem;
+  }
+  .content {
+    color:white
+  }
+  .no-results {
+    font-size: 3rem;
+    color: red;
+  }
+
+
+
+
+
+
+}
