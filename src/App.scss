@@ -4,10 +4,11 @@
   justify-content: flex-start;
   height: 100vh;
   align-items: center;
-  background-color: aquamarine;
+  background-color: rgb(230, 230, 230);
 
   .title {
     font-size: 2rem;
+    font-weight: 600;
     margin: 1.5rem 0;
   }
 
@@ -47,11 +48,40 @@
     max-width: 10rem;
   }
   .content {
-    color:white
+    color:rgb(45, 45, 45)
   }
   .no-results {
     font-size: 3rem;
     color: red;
+  }
+
+  .tabs {
+    width: 100vw;
+    justify-content: center;
+    text-transform: uppercase;
+
+    .tab {
+      display: flex;
+      justify-content: center;
+      flex: 1;
+      text-align: center;
+      cursor: pointer;
+
+    }
+    .active {
+      color: red;
+      border-bottom: .1rem solid red;
+    }
+  }
+
+  .weather-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    .weather-info__section {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
   }
 
 
