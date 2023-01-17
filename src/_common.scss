@@ -1,5 +1,14 @@
 $foreground: #0000;
 $background: #ffff;
 
-$borders: gray;
-$icons: rgb(0, 34, 255);
+// $primary: #f39c12;
+// $secondary: rgb(0, 34, 255);
+$secondary: #f39c12;
+
+
+
+$borders: #777;
+$icons: $secondary;
+
+$input_height: 5rem;
+$input_padding: .7rem;

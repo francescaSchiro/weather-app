@@ -7,27 +7,17 @@
   box-sizing: border-box;
 };
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   font-size: 10px;
   font-family: 'Titillium Web', sans-serif;
 }
 
-input, select {
+input, select, button {
   font-family: inherit;
 
 }
-
-/* 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */

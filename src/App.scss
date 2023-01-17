@@ -7,82 +7,29 @@
   background-color: rgb(230, 230, 230);
 
   .title {
+    display: flex;
+    justify-content: center;
+    text-align: center;
     font-size: 2rem;
     font-weight: 600;
     margin: 1.5rem 0;
+    text-transform: capitalize;
   }
 
-  .search {
-    align-items: center;
 
-    .form-wrapper {
-      justify-content: flex-start;
-      align-items:center;
-      label {
-        font-size: 1.5rem;
-      }
-      input, select {
-        
-        height: 4rem;
-        margin: 1rem 0;
-        padding: .5rem;
-  
-      }
-    }
 
-  }
-
-  
-  .row {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-  }
-  .column {
-    display: flex;
-    flex-direction: column;
-  }
-
-  button {
-    padding: 1rem;
-    max-width: 10rem;
-  }
   .content {
-    color:rgb(45, 45, 45)
+    color: rgb(45, 45, 45)
   }
+
   .no-results {
     font-size: 3rem;
     color: red;
   }
 
-  .tabs {
-    width: 100vw;
-    justify-content: center;
-    text-transform: uppercase;
 
-    .tab {
-      display: flex;
-      justify-content: center;
-      flex: 1;
-      text-align: center;
-      cursor: pointer;
 
-    }
-    .active {
-      color: red;
-      border-bottom: .1rem solid red;
-    }
-  }
 
-  .weather-info-wrapper {
-    display: flex;
-    flex-direction: row;
-    .weather-info__section {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-    }
-  }
 
 
 
