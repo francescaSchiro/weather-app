@@ -13,7 +13,7 @@ const WEATHER_ICONS = [
     faCloudSunRain,
 ];
 
-const WeatherIconsAnimation: FC = () => {
+const WeatherPlaceholder: FC = () => {
     const [visibleIconIndex, setVisibleIconIndex] = useState(0);
 
     useEffect(() => {
@@ -26,11 +26,11 @@ const WeatherIconsAnimation: FC = () => {
     }, [visibleIconIndex]);
 
     return (
-        <div className="weather-icons-container">
+        <div className="weather-placeholder-container">
             <FontAwesomeIcon icon={WEATHER_ICONS[visibleIconIndex]} fade />
         </div>
 
     )
 };
 
-export default WeatherIconsAnimation;
+export default WeatherPlaceholder;

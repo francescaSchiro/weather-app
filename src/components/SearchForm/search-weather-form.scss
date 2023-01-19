@@ -2,144 +2,113 @@
 
 
 .search-weather-form {
-    @include fadeInAnimation();
+  @include fadeInAnimation();
+  position: relative;
 
-    .form-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+  .form-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 
-        .citySelect {
-            // @include roundBorders();
-            position: relative;
-            display: flex;
-            align-items: center;
-            width: 21rem;
-            height: $input_height;
-            padding: $input_padding;
-            border-bottom: 1px solid $borders;
-            // border-radius: 1rem 0 0 1rem;
-            font-size: 1.25rem;
-            cursor: pointer;
-            background-color: #fff;
-            background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
+    .citySelect {
+      position: relative;
+      display: flex;
+      align-items: center;
+      width: 21rem;
+      height: $input_height;
+      padding: $input_padding;
+      border-bottom: 1px solid $borders;
+      font-size: $font-size_sm;
+      letter-spacing: $letter_spacing_sm;
+      cursor: pointer;
+      background-color: #fff;
+      background-image: linear-gradient(to top, #f9f9f9, #fff 33%);
 
-            // reset existing select styles and default dropdown arrow
-            select {
-                appearance: none;
-                background-color: transparent;
-                border: none;
-                padding: 0 1em 0 0;
-                margin: 0;
-                height: 100%;
-                width: 100%;
-                z-index: 1;
-                font-family: inherit;
-                font-size: inherit;
-                cursor: inherit;
-                line-height: inherit;
-                outline: none;
-                @include boldText();
+      // reset existing select styles and default dropdown arrow
+      select {
+        appearance: none;
+        background-color: transparent;
+        border: none;
+        padding: 0 1em 0 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        font-family: inherit;
+        font-size: inherit;
+        cursor: inherit;
+        line-height: inherit;
+        outline: none;
+        @include boldText();
 
-                // removal of the arrow for lower IE versions
-                &::-ms-expand {
-                    display: none;
-
-                }
-
-                &:focus+.focus {
-                    position: absolute;
-                    top: -.1rem;
-                    left: -.1rem;
-                    right: -.1rem;
-                    bottom: -.1rem;
-                    border-bottom: .2rem solid $secondary;
-                    // border-radius: inherit;
-                }
-
-
-            }
-
-
-            &:hover::after {
-                background-color: $secondary;
-            }
-
-
-            //arrow
-            &::after {
-
-                position: absolute;
-                top: 2.1rem;
-                right: 1rem;
-                content: "";
-                width: 1.1rem;
-                height: .8rem;
-                background-color: $borders;
-                clip-path: polygon(100% 0%, 0 0%, 50% 100%);
-                justify-self: end;
-            }
-
-
+        // removal of the arrow for lower IE versions
+        &::-ms-expand {
+          display: none;
 
         }
 
-        button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: .7rem;
-            width: 12rem;
-            height: $input_height;
-            @include boldText();
-            font-size: 1.5rem;
-            border: none;
-            background-color: $secondary;
-            color: $background;
-            margin-left: 1rem;
-
-            @include roundBorders();
-            border: none;
-            // border-radius: 0 1rem 1rem 0;
-            &:disabled {
-                background-color: $light-grey;
-                color: gray;
-                border: none;
-
-
-            }
-            &:not(:disabled) {
-                cursor: pointer;
-            }
-
-            &:hover:not(:disabled) {
-
-                background-color: $secondary_dark;
-                // color: $secondary_light;
-            }
-
-
+        &:focus+.focus {
+          position: absolute;
+          top: -.1rem;
+          left: -.1rem;
+          right: -.1rem;
+          bottom: -.1rem;
+          border-bottom: .2rem solid $secondary;
         }
+
+      }
+
+      &:hover::after {
+        background-color: $secondary;
+      }
+
+
+      //arrow
+      &::after {
+
+        position: absolute;
+        top: 2.1rem;
+        right: 1rem;
+        content: "";
+        width: 1.1rem;
+        height: .8rem;
+        background-color: $borders;
+        clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+        justify-self: end;
+      }
+
     }
 
-    .error-message {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        color: $secondary;
-        margin: 2rem 0;
-    }
+    button {
+      margin-left: 1rem;
+      @include btnStatusStyles();
 
-    .error-icon {
-        display: inline-flex;
-        align-items: center;
-
-        svg {
-            height: 5rem;
-            color: inherit;
-        }
     }
+  }
+
+  .error-message {
+    position: absolute;
+    bottom: -12rem;
+    right: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $secondary;
+    font-size: $font-size_sm;
+    letter-spacing: $letter_spacing_sm;
+  }
+
+  .error-icon {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    svg {
+      height: 5rem;
+      color: inherit;
+    }
+  }
 
 
 }
