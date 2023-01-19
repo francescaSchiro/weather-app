@@ -32,15 +32,17 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 			console.log('weatherRes', weatherRes);
 			onSubmitted(weatherRes)
 		} catch (err) {
+			console.log('%cSearchWeatherForm.tsx line:35 err', 'color: #007acc;', err);
 			let errMessage;
 			if (isAxiosError(err) && err.response) {
 				console.log('%cSearchWeatherForm.tsx line:33 err', 'color: #007acc;', err);
 				errMessage = `ERR ${err.response.status}: ${err.response.data.message}: ` as string;
 				onSubmitted(null)
+
 			}
 			else {
-				onSubmitted(null)
 				errMessage = err as string
+				onSubmitted(null)
 			}
 			setErrorMessage(errMessage)
 
