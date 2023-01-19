@@ -1,14 +1,25 @@
 {
-	"extends": "../tsconfig.json",
 	"compilerOptions": {
-		"noEmit": true,
-		"target": "es5",
-    "lib": ["es5", "dom"],
+		"resolveJsonModule": true,
+		"moduleResolution": "node",
+		"baseUrl": "../node_modules",
+		"allowSyntheticDefaultImports": true,
+		"target": "es6",
+		"lib": [
+			"es6",
+			"dom",
+			"esnext"
+		],
+
+		// "target": "es6",
+    // "lib": ["es6", "dom"],
 		"types": [
 			"cypress",
 			"node"
 		]
 	},
+
+	"noEmit": true,
 	"isolatedModules": false,
 	"include": [
 		"../node_modules/cypress",
@@ -16,22 +27,4 @@
 		"../cypress.d.ts"
 	],
 	
-	"resolveJsonModule": true,
-	"moduleResolution": "node",
-	"baseUrl": "../node_modules",
-	"allowSyntheticDefaultImports": true,
-	"target": "es6",
-	"lib": [
-		"es6",
-		"dom",
-		"esnext"
-	],
 }
-// {
-//   "compilerOptions": {
-//     "target": "es5",
-//     "lib": ["es5", "dom"],
-//     "types": ["cypress", "node"]
-//   },
-//   "include": ["**/*.ts"]
-// }
