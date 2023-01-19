@@ -3,9 +3,6 @@ import ReactDOM from 'react-dom/client';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import moment from 'moment';
-import 'moment/locale/it' 
-moment.locale('it')
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

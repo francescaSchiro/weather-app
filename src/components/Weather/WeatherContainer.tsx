@@ -1,29 +1,21 @@
-import { FC, useCallback, useState } from "react";
+import { FC } from "react";
 import { IWeatherResponse } from "../../api/models/WeatherResponse";
-import Tabs, { ITab } from "./Tabs";
-import WeatherInfo from "./WeatherInfo";
-import "./weather-container.scss"
+import { ITab } from "./Tabs";
+import WeatherInfo from "./WeatherInfo/WeatherInfo";
 
 
 interface IWeatherContainer {
     weather: IWeatherResponse;
+    activeTab: ITab;
 }
 
-const WeatherContainer: FC<IWeatherContainer> = ({weather}) => {
-    const [activeTab, setActiveTab] = useState<ITab>("today");
-    const handleTabClick = useCallback((tab: ITab) => setActiveTab(tab), []);
+const WeatherContainer: FC<IWeatherContainer> = ({weather, activeTab}) => {
 
     return (
-        <div className="weather-container">
-            <Tabs
-                activeTab={activeTab}
-                onTabClick={handleTabClick}
-            />
             <WeatherInfo
                 weatherInfo={weather}
                 activeTab={activeTab}
             />
-        </div>
     )
 };
 

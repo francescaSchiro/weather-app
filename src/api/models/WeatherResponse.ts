@@ -6,12 +6,3 @@ export interface IWeatherResponse {
 	description: string,
 	forecast: IWeatherDay[]
 };
-
-
-// export type IWeatherSuccessResponse = {
-//     query: {
-//         codes: string[],
-//         country: string | null,
-//     },
-//     results: IZipCodeCityResult;
-// };

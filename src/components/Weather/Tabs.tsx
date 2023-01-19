@@ -1,5 +1,3 @@
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FC } from "react";
 
 
@@ -10,8 +8,6 @@ interface ITabs {
 };
 export type ITab = "today" | "3days";
 
-
-
 const Tabs: FC<ITabs> = ({ activeTab, onTabClick }) => {
 
     return (
@@ -19,11 +15,13 @@ const Tabs: FC<ITabs> = ({ activeTab, onTabClick }) => {
             <div
                 className={`tab ${activeTab === "today" ? "active" : ""}`}
                 onClick={() => onTabClick("today")}
-            >Today<FontAwesomeIcon icon={faCoffee} /></div>
+            >Today
+            </div>
             <div
                 className={`tab ${activeTab === "3days" ? "active" : ""}`}
                 onClick={() => onTabClick("3days")}
-            >3 days</div>
+            >3 days
+            </div>
         </div>
     )
 };

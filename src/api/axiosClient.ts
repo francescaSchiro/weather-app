@@ -1,11 +1,7 @@
-import axios from "axios"
+import axios from "axios";
 import { URLS } from "./urls"
 
 
-export const WeatherApi = axios.create({
+export const weatherApi = axios.create({
     baseURL: URLS.WEATHER,
 });
-
-export const ZipCodeApi = axios.create({
-    baseURL: URLS.ZIPCODE,    
-})

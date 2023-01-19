@@ -1,37 +1,50 @@
+import { faPooStorm } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { isAxiosError } from "axios";
 import { FC, FormEvent, useCallback, useState } from "react";
 import { IWeatherResponse } from "../../api/models/WeatherResponse";
 import { CITIES, ICity } from "../../constants";
-import { getWeatherByCity, IWeatherResponseError } from "../../services/weather.service";
+import { getWeatherByCity } from "../../services/weather.service";
 import Spinner from "../Spinner/Spinner";
 import "./search-weather-form.scss"
 
 
 
 interface ISearchWeatherForm {
-    onFormSubmit: (weather: IWeatherResponse, city: string) => void;
-    onFormReset: () => void;
+    onSubmitted: (weather: IWeatherResponse, city: string) => void;
 };
 
-const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onFormSubmit, onFormReset }) => {
+const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
     const [city, setCity] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState(null)
+    const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
 
     const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setIsLoading(true);
-        const weatherRes = await getWeatherByCity({ city });
-        if (weatherRes.isError) {
-            setErrorMessage(weatherRes.data)
+        console.log('handleSubmit');
+        try {
+            const weatherRes = await getWeatherByCity({ city });
+            console.log('weatherRes', weatherRes);
+            onSubmitted(weatherRes, city)
+        } catch (err) {
+            let errMessage;
+            // throw new Error(String(err));
+            if (isAxiosError(err) && err.response) {
+                console.log('%cSearchWeatherForm.tsx line:33 err', 'color: #007acc;', err);
+                errMessage = `ERR ${err.response.status}: ${err.response.data.message}: ` as string;
+             } 
+             else {
+                errMessage = err as string
+            }
+            setErrorMessage(errMessage)
+
+        } finally {
             setIsLoading(false)
-            throw new Error(weatherRes.data)
-        };
-        onFormSubmit(weatherRes.data as IWeatherResponse, city)
+        }
 
-        setIsLoading(false)
-
-    }, [city, onFormSubmit]);
+    }, [city, onSubmitted]);
 
     const onCityChange = useCallback((city: string) => {
         if (errorMessage) setErrorMessage(null);
@@ -65,8 +78,11 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onFormSubmit, onFormReset }
                 </button>
 
             </form>
-            {errorMessage ? (
-                <div className="error-message">{errorMessage}</div>
+            {true ? (
+                <>
+                <div className="error-message">{errorMessage?.toString() ?? "errore"}</div>
+                <div className="error-icon"><FontAwesomeIcon icon={faPooStorm} beatFade/></div>
+                </>
             ) : null}
 
 
