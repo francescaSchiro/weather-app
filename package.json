@@ -10,7 +10,7 @@
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^27.0.1",
-    "@types/node": "^16.7.13",
+    "@types/node": "^18.11.18",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "axios": "^1.2.2",
@@ -18,6 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "ts-jest": "^29.0.5",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -25,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cy": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -46,7 +48,9 @@
     ]
   },
   "devDependencies": {
+    "@types/mocha": "^10.0.1",
     "@types/node-sass": "^4.11.3",
+    "cypress": "^12.3.0",
     "node-sass": "^8.0.0"
   }
 }

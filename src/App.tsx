@@ -1,11 +1,10 @@
 import { FC, useCallback, useState } from 'react';
-import './App.scss';
 import { IWeatherResponse } from './api/models/WeatherResponse';
-import WeatherContainer from './components/Weather/WeatherContainer';
 import SearchWeatherForm from './components/SearchForm/SearchWeatherForm';
 import Tabs, { ITab } from './components/Weather/Tabs';
-
-// https://fontawesome.com/icons/cloud?s=light&f=classic
+import WeatherIconsAnimation from './components/Weather/WeatherIconsAnimation';
+import WeatherInfo from './components/Weather/WeatherInfo/WeatherInfo';
+import './App.scss';
 
 
 const App: FC = () => {
@@ -35,7 +34,6 @@ const App: FC = () => {
           onSubmitted={setWeatherData}
         />
 
-
         <div className="title selected-city">{selectedCity}</div>
 
         {weather ? (
@@ -45,12 +43,15 @@ const App: FC = () => {
               activeTab={activeTab}
               onTabClick={handleTabClick}
             />
-            <WeatherContainer
-              weather={weather}
+
+            <WeatherInfo
+              weatherInfo={weather}
               activeTab={activeTab}
             />
+
           </div>
-        ) : null}
+          
+        ) : <WeatherIconsAnimation />}
 
 
 

@@ -34,8 +34,8 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
             if (isAxiosError(err) && err.response) {
                 console.log('%cSearchWeatherForm.tsx line:33 err', 'color: #007acc;', err);
                 errMessage = `ERR ${err.response.status}: ${err.response.data.message}: ` as string;
-             } 
-             else {
+            }
+            else {
                 errMessage = err as string
             }
             setErrorMessage(errMessage)
@@ -57,7 +57,7 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
         <div className="search-weather-form">
 
             <form onSubmit={handleSubmit} className="form-wrapper">
-                <div className="citySelect">
+                <div className="citySelect" data-cy="select">
                     <select
                         name="city"
                         onChange={(event) => onCityChange(event.target.value as "" | ICity)}
@@ -65,7 +65,7 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
                     >
                         <option value="" disabled>Pick a city</option>
                         {CITIES.map(city => (
-                            <option key={city} value={city}>{city}</option>
+                            <option data-cy={`option-${city}`}key={city} value={city}>{city}</option>
                         ))}
                     </select>
                     <span className="focus"></span>
@@ -74,14 +74,16 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
                 </div>
 
                 <button type="submit" disabled={!city}>
-                    {isLoading ? <Spinner /> : "Search"}
+                    {isLoading ? <Spinner /> : "find out!"}
                 </button>
 
             </form>
-            {true ? (
+            {errorMessage ? (
                 <>
-                <div className="error-message">{errorMessage?.toString() ?? "errore"}</div>
-                <div className="error-icon"><FontAwesomeIcon icon={faPooStorm} beatFade/></div>
+                    <div className="error-message">
+                        <div className="error-icon"><FontAwesomeIcon icon={faPooStorm} /></div>
+                        {errorMessage?.toString() ?? "errore"}
+                    </div>
                 </>
             ) : null}
 

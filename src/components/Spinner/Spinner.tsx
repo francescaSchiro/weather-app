@@ -6,7 +6,6 @@ const Spinner: FC = () => {
     return (
         <div
             className="spinner"
-           
         />
     )
 }

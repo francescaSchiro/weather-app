@@ -1,5 +1,6 @@
 /* https://meyerweb.com/eric/tools/css/reset/ */
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300;400;700&display=swap');
+@import "./common";
 
 * {
   margin: 0;
@@ -15,6 +16,7 @@
 html {
   font-size: 10px;
   font-family: 'Titillium Web', sans-serif;
+  color: $foreground;
 }
 
 input, select, button {

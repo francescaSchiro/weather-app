@@ -1,10 +1,11 @@
-$foreground: #0000;
+$foreground: rgb(38, 38, 38);
 $background: #ffff;
 $light-grey: #e6e6e6;
 
-// $primary: #f39c12;
-// $secondary: rgb(0, 34, 255);
+$primary: #1269f3;
 $secondary: #f39c12;
+$secondary_light: #f39d1281;
+$secondary_dark: #e49311;
 
 
 
@@ -26,13 +27,27 @@ $input_padding: 1rem;
 }
 
 @mixin fadeInAnimation() {  
-    animation: opacity 1s both;
-    @keyframes opacity {
+    animation: fadeIn 1s both;
+    @keyframes fadeIn {
       0% {
         opacity: 0;
       }
       100% {
         opacity: 1;
+      }
+    }
+}
+@mixin fadeInOutAnimation() {  
+    animation: fadeInOut 2s infinite;
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
       }
     }
 }

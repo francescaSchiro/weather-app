@@ -1,19 +1,15 @@
-import moment from "moment";
 import { FC } from "react";
 import { IWeatherDay } from "../../../api/models/WeatherDay";
 import { IWeatherResponse } from "../../../api/models/WeatherResponse";
 import { ITab } from "../Tabs";
 import WeatherDate from "./WeatherDate";
 import WeatherTempWind from "./WeatherTempWind";
-import 'moment/locale/it' 
-moment.locale('it')
+import { TODAY } from "../../../constants";
 
 interface IWeatherInfoProps {
     weatherInfo: IWeatherResponse;
     activeTab: ITab;
 }
-
-const TODAY = moment();
 
 const WeatherInfo: FC<IWeatherInfoProps> = ({ weatherInfo, activeTab }) => {
 

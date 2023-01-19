@@ -1,4 +1,8 @@
-// http://country.io/names.json
+import moment from "moment";
+import 'moment/locale/it' 
+moment.locale('it')
+
+
 export const CITIES = [
   "Rome",
   "London",
@@ -9,6 +13,9 @@ export const CITIES = [
 ] as const;
 
 export type ICity = typeof CITIES[number];
+
+
+export const TODAY = moment();
 
 export const LABELS = {
 
