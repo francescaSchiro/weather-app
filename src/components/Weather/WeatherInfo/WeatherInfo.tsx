@@ -5,6 +5,7 @@ import WeatherDate from "./WeatherDate";
 import WeatherTempWind from "./WeatherTempWind";
 import { LABELS, TODAY } from "../../../constants";
 
+
 interface IWeatherInfoProps {
   weatherInfo: IWeatherResponse;
   activeTab: string;

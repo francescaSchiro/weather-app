@@ -13,11 +13,9 @@ const App: FC = () => {
   const handleTabClick = useCallback((tab: string) => setActiveTab(tab), []);
 
   const setWeatherData = useCallback((weather: IWeatherResponse | null) => {
-    console.log('%cApp.tsx line:23 weather', 'color: #007acc;', weather);
     setActiveTab(LABELS.TABS[0])
     setWeather(weather);
   }, []);
-
 
   return (
     <div className="app">

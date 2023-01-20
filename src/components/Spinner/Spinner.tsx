@@ -3,11 +3,11 @@ import './spinner.scss'
 
 
 const Spinner: FC = () => {
-    return (
-        <div
-            className="spinner"
-        />
-    )
+  return (
+    <div
+      className="spinner"
+    />
+  )
 }
 
 export default Spinner;

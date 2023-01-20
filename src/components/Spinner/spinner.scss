@@ -1,21 +1,22 @@
 @import "../../common";
 
+
 .spinner {
-    margin: auto;
-    border: .2rem solid #EAF0F6;
-    border-radius: 50%;
-    border-top: .2rem solid $secondary_dark;
-    width: 2rem;
-    height: 2rem;
-    animation: spinner 4s linear infinite;
+  margin: auto;
+  border: .2rem solid $background;
+  border-radius: 50%;
+  border-top: .2rem solid $secondary_dark;
+  width: 2rem;
+  height: 2rem;
+  animation: spinner 4s linear infinite;
 
-    @keyframes spinner {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
+  @keyframes spinner {
+    0% {
+      transform: rotate(0deg);
     }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
 }

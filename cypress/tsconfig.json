@@ -11,8 +11,6 @@
 			"esnext"
 		],
 
-		// "target": "es6",
-    // "lib": ["es6", "dom"],
 		"types": [
 			"cypress",
 			"node"

@@ -1,13 +1,13 @@
 import { FC } from "react";
 import { LABELS } from "../../constants";
 
+
 interface ITabs {
 	activeTab: string;
 	onTabClick: (tab: string) => void;
 };
 
 const Tabs: FC<ITabs> = ({ activeTab, onTabClick }) => {
-
 	return (
 		<div className='tabs'>
 

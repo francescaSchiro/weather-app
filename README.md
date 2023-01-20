@@ -1,6 +1,6 @@
 ## Weather-App
 weather app made with react and typescript. Uses axios, cypress, jest, hooks, sass
-[VIEW DEMO](herokulink)
+[VIEW DEMO](https://weather-app-production-162a.up.railway.app/)
 
 # TO START THE PROJECT: 
 
