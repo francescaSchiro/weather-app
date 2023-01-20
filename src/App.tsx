@@ -11,7 +11,6 @@ const App: FC = () => {
   const [activeTab, setActiveTab] = useState<ITab>("today");
   const handleTabClick = useCallback((tab: ITab) => setActiveTab(tab), []);
 
-
   const setWeatherData = useCallback((weather: IWeatherResponse | null) => {
     console.log('%cApp.tsx line:23 weather', 'color: #007acc;', weather);
     setActiveTab("today")
