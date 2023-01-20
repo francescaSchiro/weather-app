@@ -1,19 +1,20 @@
 import { FC, useCallback, useState } from 'react';
 import { IWeatherResponse } from './api/models/WeatherResponse';
 import SearchForm from './components/SearchForm/SearchForm';
-import Tabs, { ITab } from './components/Weather/Tabs';
+import Tabs from './components/Weather/Tabs';
 import WeatherInfo from './components/Weather/WeatherInfo/WeatherInfo';
 import './App.scss';
+import { LABELS } from './constants';
 
 
 const App: FC = () => {
   const [weather, setWeather] = useState<IWeatherResponse | null>(null)
-  const [activeTab, setActiveTab] = useState<ITab>("today");
-  const handleTabClick = useCallback((tab: ITab) => setActiveTab(tab), []);
+  const [activeTab, setActiveTab] = useState(LABELS.TABS[0]);
+  const handleTabClick = useCallback((tab: string) => setActiveTab(tab), []);
 
   const setWeatherData = useCallback((weather: IWeatherResponse | null) => {
     console.log('%cApp.tsx line:23 weather', 'color: #007acc;', weather);
-    setActiveTab("today")
+    setActiveTab(LABELS.TABS[0])
     setWeather(weather);
   }, []);
 
@@ -24,7 +25,7 @@ const App: FC = () => {
       <div className="app__card">
 
         <div className="app__card__title">
-          What's the weather like in...
+          {LABELS.APP_TITLE}
         </div>
 
         <SearchForm
@@ -45,7 +46,7 @@ const App: FC = () => {
             />
 
           </div>
-          
+
         ) : null}
 
       </div>

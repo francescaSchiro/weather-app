@@ -1,11 +1,10 @@
 import { FC } from "react";
+import { LABELS } from "../../constants";
 
 interface ITabs {
-	activeTab: "today" | "3days";
-	onTabClick: (tab: "today" | "3days") => void;
+	activeTab: string;
+	onTabClick: (tab: string) => void;
 };
-
-export type ITab = "today" | "3days";
 
 const Tabs: FC<ITabs> = ({ activeTab, onTabClick }) => {
 
@@ -13,16 +12,16 @@ const Tabs: FC<ITabs> = ({ activeTab, onTabClick }) => {
 		<div className='tabs'>
 
 			<div
-				data-cy="today"
-				className={`tabs__tab ${activeTab === "today" ? "tabs__tab--active" : ""}`}
-				onClick={() => onTabClick("today")}
-			>Today
+				data-cy={LABELS.TABS[0]}
+				className={`tabs__tab ${activeTab === LABELS.TABS[0] ? "tabs__tab--active" : ""}`}
+				onClick={() => onTabClick(LABELS.TABS[0])}
+			>{LABELS.TABS[0]}
 			</div>
 			<div
-				data-cy="3days"
-				className={`tabs__tab ${activeTab === "3days" ? "tabs__tab--active" : ""}`}
-				onClick={() => onTabClick("3days")}
-			>3 days
+				data-cy={LABELS.TABS[1]}
+				className={`tabs__tab ${activeTab === LABELS.TABS[1] ? "tabs__tab--active" : ""}`}
+				onClick={() => onTabClick(LABELS.TABS[1])}
+			>{LABELS.TABS[1]}
 			</div>
 
 		</div>

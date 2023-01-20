@@ -3,12 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { isAxiosError } from "axios";
 import { FC, FormEvent, useCallback, useState } from "react";
 import { IWeatherResponse } from "../../api/models/WeatherResponse";
-import { CITIES, ICity } from "../../constants";
+import { CITIES, ICity, LABELS } from "../../constants";
 import { getWeatherByCity } from "../../services/weather.service";
 import Spinner from "../Spinner/Spinner";
 import WeatherPlaceholder from "../Weather/WeatherPlaceholder";
 import "./search-form.scss"
-
 
 
 interface ISearchWeatherForm {
@@ -27,7 +26,6 @@ const SearchForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 		setIsLoading(true);
 		try {
 			const weatherRes = await getWeatherByCity({ city });
-			console.log('weatherRes', weatherRes);
 			onSubmitted(weatherRes)
 		} catch (err) {
 			let errMessage;
@@ -63,7 +61,7 @@ const SearchForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 						onChange={(event) => onCityChange(event.target.value as "" | ICity)}
 						value={city}
 					>
-						<option value="" disabled>Pick a city</option>
+						<option value="" disabled>{LABELS.FORM.SELECT_PLACEHOLDER}</option>
 						{CITIES.map(city => (
 							<option data-cy={`option-${city}`} key={city} value={city}>{city}</option>
 						))}
@@ -73,7 +71,7 @@ const SearchForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 				</div>
 
 				<button type="submit" disabled={!city}>
-					{isLoading ? <Spinner /> : "find out!"}
+					{isLoading ? <Spinner /> : LABELS.FORM.BUTTON}
 				</button>
 
 			</form>
@@ -84,7 +82,7 @@ const SearchForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 						<div className="error__icon">
 							<FontAwesomeIcon icon={faPooStorm} shake />
 						</div>
-						{errorMessage?.toString() ?? "errore"}
+						{errorMessage?.toString() ?? LABELS.FORM.ERROR}
 					</div>
 				</>
 			) : showPlaceholder ? <WeatherPlaceholder /> : null}

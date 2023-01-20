@@ -27,10 +27,15 @@ const WEATHER_MOCK: IWeatherResponse = {
 }
 
 describe("Weather service", () => {
-  it("should get weather", async () => {
+  it("should return weather if success", async () => {
     jest.spyOn(weatherApi, "get").mockResolvedValue({ data: WEATHER_MOCK });
     const response = await getWeatherByCity({ city: "Amsterdam" });
     expect(weatherApi.get).toHaveBeenCalledWith("/weather/Amsterdam");
     expect(response).toMatchObject(WEATHER_MOCK);
+  });
+
+  it("should throw error when request fails", async () => {
+    jest.spyOn(weatherApi, "get").mockRejectedValue(new Error("jest mock error"));
+    await expect(() => getWeatherByCity({ city: "Amsterdam" })).rejects.toThrow();
   });
 });

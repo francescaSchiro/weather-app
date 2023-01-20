@@ -3,23 +3,22 @@ import { FC } from "react";
 
 
 interface IWeatherDateProps {
-    date: moment.Moment;
+  date: moment.Moment;
 };
 
 const WeatherDate: FC<IWeatherDateProps> = ({
-    date,
+  date,
 }) => {
-    const DAY = date.format("dddd DD");
-    const MONTH = date.format("MMMM");
-    const YEAR = date.format("yyyy");
-    return (
-        <div className="weather-info__day__date">
-            <div>{DAY}</div>
-            <div>{MONTH}</div>
-            <div>{YEAR}</div>
-        </div>
-
-    )
+  const DAY = date.format("dddd DD");
+  const MONTH = date.format("MMMM");
+  const YEAR = date.format("yyyy");
+  return (
+    <div className="weather-info__day__date">
+      <div>{DAY}</div>
+      <div>{MONTH}</div>
+      <div>{YEAR}</div>
+    </div>
+  )
 }
 
 export default WeatherDate;
