@@ -14,13 +14,13 @@ const Tabs: FC<ITabs> = ({ activeTab, onTabClick }) => {
 
 			<div
 				data-cy="today"
-				className={`tab ${activeTab === "today" ? "active" : ""}`}
+				className={`tabs__tab ${activeTab === "today" ? "tabs__tab--active" : ""}`}
 				onClick={() => onTabClick("today")}
 			>Today
 			</div>
 			<div
 				data-cy="3days"
-				className={`tab ${activeTab === "3days" ? "active" : ""}`}
+				className={`tabs__tab ${activeTab === "3days" ? "tabs__tab--active" : ""}`}
 				onClick={() => onTabClick("3days")}
 			>3 days
 			</div>

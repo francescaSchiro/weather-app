@@ -17,15 +17,15 @@ const WeatherInfo: FC<IWeatherInfoProps> = ({ weatherInfo, activeTab }) => {
         <div className="weather-info">
 
             {activeTab === "today" ? (
-                <div className={`weather-info-day ${activeTab}`}>
+                <div className={`weather-info__day ${activeTab}`}>
                     <WeatherDate date={TODAY} />
                     <div>
-                        <div className="description">{weatherInfo.description}</div>
+                        <div className="weather-info__day__description">{weatherInfo.description}</div>
                         <WeatherTempWind temp={weatherInfo.temperature} wind={weatherInfo.wind} />
                     </div>
                 </div>
             ) : weatherInfo.forecast.map((dayWeather: IWeatherDay) => (
-                <div key={dayWeather.day} className={`weather-info-day ${activeTab}`}>
+                <div key={dayWeather.day} className={`weather-info__day ${activeTab}`}>
                     <WeatherDate date={TODAY.clone().add(dayWeather.day, 'days')} />
                     <WeatherTempWind temp={dayWeather.temperature} wind={dayWeather.wind} />
                 </div>

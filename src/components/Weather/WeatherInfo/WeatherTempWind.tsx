@@ -13,7 +13,7 @@ const WeatherTempWind: FC<IWeatherTempWindProps> = ({
     wind
 }) => {
     return (
-        <div className="date-temperature">
+        <div className="weather-info__day__date-temperature">
             <div>
                 <FontAwesomeIcon icon={faTemperatureHalf} />
                 {temp}

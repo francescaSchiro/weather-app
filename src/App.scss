@@ -8,7 +8,7 @@
   background-color: $foreground;
 
 
-  .app-card {
+  &__card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -20,7 +20,7 @@
     padding-top: 4rem;
     @include roundBorders();
 
-    .title {
+    &__title {
       display: flex;
       justify-content: center;
       text-align: center;
@@ -66,7 +66,7 @@
         height: $input_height;
 
 
-        .tab {
+        &__tab {
           height: 100%;
           width: 16.5rem;
           display: flex;
@@ -83,18 +83,18 @@
             border-bottom: .5rem solid $secondary;
           }
 
-        }
-
-        .active {
-          background-color: $secondary;
-          color: $background;
-          cursor: default;
-
-          &:hover {
+          &--active {
+            background-color: $secondary;
             color: $background;
-            border-bottom: none;
+            cursor: default;
+  
+            &:hover {
+              color: $background;
+              border-bottom: none;
+            }
           }
         }
+
       }
 
       .weather-info {
@@ -105,7 +105,7 @@
         font-size: $font-size_md;
         margin: 2rem 0;
 
-        .weather-info-day {
+        &__day {
           display: flex;
           flex-direction: row;
           align-items: center;
@@ -114,12 +114,12 @@
           flex: 1;
           @include fadeInAnimation();
 
-          .description {
+          &__description {
             margin-bottom: .4rem;
             max-width: 21rem;
           }
 
-          .date {
+          &__date {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -154,7 +154,7 @@
 
           }
 
-          .date-temperature {
+          &__date-temperature {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;

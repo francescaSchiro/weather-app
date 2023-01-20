@@ -1,6 +1,6 @@
 import { FC, useCallback, useState } from 'react';
 import { IWeatherResponse } from './api/models/WeatherResponse';
-import SearchWeatherForm from './components/SearchForm/SearchWeatherForm';
+import SearchForm from './components/SearchForm/SearchForm';
 import Tabs, { ITab } from './components/Weather/Tabs';
 import WeatherInfo from './components/Weather/WeatherInfo/WeatherInfo';
 import './App.scss';
@@ -21,13 +21,13 @@ const App: FC = () => {
   return (
     <div className="app">
 
-      <div className="app-card">
+      <div className="app__card">
 
-        <div className="title">
+        <div className="app__card__title">
           What's the weather like in...
         </div>
 
-        <SearchWeatherForm
+        <SearchForm
           onSubmitted={setWeatherData}
         />
 

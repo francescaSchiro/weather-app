@@ -7,7 +7,7 @@ import { CITIES, ICity } from "../../constants";
 import { getWeatherByCity } from "../../services/weather.service";
 import Spinner from "../Spinner/Spinner";
 import WeatherPlaceholder from "../Weather/WeatherPlaceholder";
-import "./search-weather-form.scss"
+import "./search-form.scss"
 
 
 
@@ -15,42 +15,35 @@ interface ISearchWeatherForm {
 	onSubmitted: (weather: IWeatherResponse | null) => void;
 };
 
-const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
+const SearchForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 	const [city, setCity] = useState("");
 	const [isLoading, setIsLoading] = useState(false);
 	const [errorMessage, setErrorMessage] = useState<string | null>(null)
-	// dont show animation if error or weather set
+	// dont show animation if error or weather
 	const [showPlaceholder, setShowPlaceholder] = useState(true);
-
 
 	const handleSubmit = useCallback(async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		setIsLoading(true);
-		console.log('handleSubmit');
 		try {
 			const weatherRes = await getWeatherByCity({ city });
 			console.log('weatherRes', weatherRes);
 			onSubmitted(weatherRes)
 		} catch (err) {
-			console.log('%cSearchWeatherForm.tsx line:35 err', 'color: #007acc;', err);
 			let errMessage;
 			if (isAxiosError(err) && err.response) {
-				console.log('%cSearchWeatherForm.tsx line:33 err', 'color: #007acc;', err);
 				errMessage = `ERR ${err.response.status}: ${err.response.data.message}: ` as string;
 				onSubmitted(null)
-
 			}
 			else {
 				errMessage = err as string
 				onSubmitted(null)
 			}
 			setErrorMessage(errMessage)
-
 		} finally {
 			setIsLoading(false)
 			setShowPlaceholder(false)
 		}
-
 	}, [city, onSubmitted]);
 
 	const onCityChange = useCallback((city: string) => {
@@ -58,14 +51,12 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 		setCity(city);
 	}, [errorMessage]);
 
-
-
 	return (
-		<div className="search-weather-form">
+		<div className="search-form">
 
-			<form onSubmit={handleSubmit} className="form-wrapper">
+			<form onSubmit={handleSubmit} className="search-form__wrapper">
 
-				<div className="citySelect" data-cy="select">
+				<div className="search-form__wrapper__city-select" data-cy="select">
 
 					<select
 						name="city"
@@ -89,8 +80,8 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 
 			{errorMessage ? (
 				<>
-					<div className="error-message">
-						<div className="error-icon">
+					<div className="error">
+						<div className="error__icon">
 							<FontAwesomeIcon icon={faPooStorm} shake />
 						</div>
 						{errorMessage?.toString() ?? "errore"}
@@ -102,4 +93,4 @@ const SearchWeatherForm: FC<ISearchWeatherForm> = ({ onSubmitted }) => {
 	)
 };
 
-export default SearchWeatherForm;
+export default SearchForm;

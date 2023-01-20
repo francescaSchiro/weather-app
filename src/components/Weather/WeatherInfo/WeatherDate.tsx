@@ -13,7 +13,7 @@ const WeatherDate: FC<IWeatherDateProps> = ({
     const MONTH = date.format("MMMM");
     const YEAR = date.format("yyyy");
     return (
-        <div className="date">
+        <div className="weather-info__day__date">
             <div>{DAY}</div>
             <div>{MONTH}</div>
             <div>{YEAR}</div>

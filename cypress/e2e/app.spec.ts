@@ -18,17 +18,17 @@ describe("Weather App - ", () => {
     cy.wait("@getWeather").its('request.url').should('include', 'London');
 
     // }).its('request.url').should('include', 'London')
-    cy.get("[data-cy=today]").should("have.class", "active");
-    cy.get(".description").should("exist");
+    cy.get("[data-cy=today]").should("have.class", "tabs__tab--active");
+    cy.get(".weather-info__day__description").should("exist");
 
     // @tab change, 3days tab should be active and display 3 blocks of info
     cy.get("[data-cy=3days]").click();
-    cy.get(".weather-info-day").should("have.length", 3)
+    cy.get(".weather-info__day").should("have.length", 3)
 
     //@select new city, active tab should return "today"
     cy.get("[data-cy=select]>select").select(3);
     cy.get("button").click();
-    cy.get("[data-cy=today]").should("have.class", "active");
+    cy.get("[data-cy=today]").should("have.class", "tabs__tab--active");
 
   });
 
@@ -62,8 +62,8 @@ describe("Weather App - ", () => {
 
 
     // error should be visible
-    cy.get(".error-icon").should("exist");
-    cy.get(".error-message").should("include.text", "Request failed with status code 404");
+    cy.get(".error__icon").should("exist");
+    cy.get(".error").should("include.text", "Request failed with status code 404");
 
     // weather-container should NOT be visible
     cy.get(".weather-container").should("not.exist");
@@ -76,7 +76,7 @@ describe("Weather App - ", () => {
     cy.get("[data-cy=select]>select").select(4);
     cy.get("button").click();
     // error should NOT be visible
-    cy.get(".error-message").should("not.exist");
+    cy.get(".error").should("not.exist");
     // weather-container should be visible
     cy.get(".weather-container").should("exist");
 

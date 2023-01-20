@@ -1,16 +1,16 @@
 @import "../../common";
 
 
-.search-weather-form {
+.search-form {
   @include fadeInAnimation();
   position: relative;
 
-  .form-wrapper {
+  &__wrapper {
     display: flex;
     flex-direction: row;
     justify-content: center;
 
-    .citySelect {
+    &__city-select {
       position: relative;
       display: flex;
       align-items: center;
@@ -62,7 +62,6 @@
         background-color: $secondary;
       }
 
-
       //arrow
       &::after {
 
@@ -86,7 +85,7 @@
     }
   }
 
-  .error-message {
+  .error {
     position: absolute;
     bottom: -12rem;
     right: 10rem;
@@ -97,18 +96,19 @@
     color: $secondary;
     font-size: $font-size_sm;
     letter-spacing: $letter_spacing_sm;
-  }
 
-  .error-icon {
-    display: inline-flex;
-    align-items: center;
-    margin-bottom: 1rem;
+    &__icon {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 1rem;
 
-    svg {
-      height: 5rem;
-      color: inherit;
+      svg {
+        height: 5rem;
+        color: inherit;
+      }
     }
   }
+
 
 
 }
