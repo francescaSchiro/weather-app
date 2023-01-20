@@ -17,4 +17,3 @@ In the project directory, you can run:
 # TO TEST WITH JEST: 
 
 - `yarn test`
-- `a` to run all

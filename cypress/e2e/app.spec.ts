@@ -82,6 +82,4 @@ describe("Weather App - ", () => {
 
   });
 
-
-
 });
